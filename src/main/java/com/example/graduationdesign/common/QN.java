@@ -8,7 +8,7 @@ import com.example.graduationdesign.utils.StatusEnum;
  * 统一返回信息
  */
 @Data
-public class R<T> {
+public class QN<T> {
 
     private Integer status;//状态码
 
@@ -18,20 +18,20 @@ public class R<T> {
 
     private String timestamp;//接口调用时间
 
-    public R() {
+    public QN() {
         this.timestamp = CommonUtils.getCurrentTime();
     }
 
-    public static <T> R<T> success() {
-        R<T> r = new R<>();
+    public static <T> QN<T> success() {
+        QN<T> r = new QN<>();
         r.setStatus(StatusEnum.OK.getCode());
         r.setMessage(StatusEnum.OK.getMsg());
         r.setTimestamp(CommonUtils.getCurrentTime());
         return r;
     }
 
-    public static <T> R<T> success(T data) {
-        R<T> r = new R<>();
+    public static <T> QN<T> success(T data) {
+        QN<T> r = new QN<>();
         r.setStatus(StatusEnum.OK.getCode());
         r.setMessage(StatusEnum.OK.getMsg());
         r.setData(data);
@@ -39,16 +39,16 @@ public class R<T> {
         return r;
     }
 
-    public static <T> R<T> error(String msg) {
-        R<T> r = new R<>();
+    public static <T> QN<T> error(String msg) {
+        QN<T> r = new QN<>();
         r.setStatus(StatusEnum.BAD_REQUEST.getCode());
         r.setMessage(msg);
         r.setTimestamp(CommonUtils.getCurrentTime());
         return r;
     }
 
-    public static <T> R<T> server_error(String msg) {
-        R<T> r = new R<>();
+    public static <T> QN<T> server_error(String msg) {
+        QN<T> r = new QN<>();
         r.setStatus(StatusEnum.SERVER_ERROR.getCode());
         r.setMessage(msg);
         return r;

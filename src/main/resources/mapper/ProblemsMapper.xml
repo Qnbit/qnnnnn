@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.graduationdesign.mapper.ProblemsMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.graduationdesign.pojo.Problems">
+            <id property="problemId" column="problem_id" jdbcType="INTEGER"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="inputFormat" column="input_format" jdbcType="VARCHAR"/>
+            <result property="outputFormat" column="output_format" jdbcType="VARCHAR"/>
+            <result property="exampleInput" column="example_input" jdbcType="VARCHAR"/>
+            <result property="exampleOutput" column="example_output" jdbcType="VARCHAR"/>
+            <result property="difficulty" column="difficulty" jdbcType="OTHER"/>
+            <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+            <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        problem_id,title,description,
+        input_format,output_format,example_input,
+        example_output,difficulty,created_at,
+        updated_at
+    </sql>
+</mapper>

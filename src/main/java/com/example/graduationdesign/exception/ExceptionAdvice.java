@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.example.graduationdesign.common.R;
+import com.example.graduationdesign.common.QN;
 import com.example.graduationdesign.utils.Constants;
 
 @ControllerAdvice
@@ -16,23 +16,23 @@ public class ExceptionAdvice {
 
     //json解析失败
     @ExceptionHandler(JSONException.class)
-    public R<String> JSONException() {
-        return R.server_error(Constants.JSON_PARSE_ERROR);
+    public QN<String> JSONException() {
+        return QN.server_error(Constants.JSON_PARSE_ERROR);
     }
 
     //时间
     @ExceptionHandler(TimeGeneExceprion.class)
-    public R<String> TimeGeneExceprion() {
-        return R.server_error(Constants.TIME_GENE_ERROR);
+    public QN<String> TimeGeneExceprion() {
+        return QN.server_error(Constants.TIME_GENE_ERROR);
     }
 
     //参数错误
     @ExceptionHandler(ParamException.class)
-    public R<String> ParamException(ParamException paramException) {
+    public QN<String> ParamException(ParamException paramException) {
         if (StrUtil.isNotBlank(paramException.getMsg())){
-            return R.error(paramException.getMsg());
+            return QN.error(paramException.getMsg());
         }
-        return R.error(Constants.PARAM_ERROR);
+        return QN.error(Constants.PARAM_ERROR);
     }
 
 }
