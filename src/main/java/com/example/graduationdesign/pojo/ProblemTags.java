@@ -17,13 +17,13 @@ public class ProblemTags implements Serializable {
     /**
      * 题目ID，外键，关联题目表
      */
-    @TableId
+//    @TableId
     private Integer problemId;
 
     /**
      * 标签ID，外键，关联标签表
      */
-    @TableId
+//    @TableId
     private Integer tagId;
 
     @TableField(exist = false)

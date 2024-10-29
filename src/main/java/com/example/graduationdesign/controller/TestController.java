@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
 
+    @RequestMapping
     public QN<String> test(){
         return QN.success("hello");
     }

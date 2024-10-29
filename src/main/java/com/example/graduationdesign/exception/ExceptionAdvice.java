@@ -2,11 +2,11 @@ package com.example.graduationdesign.exception;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONException;
+import com.example.graduationdesign.common.QN;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.example.graduationdesign.common.QN;
 import com.example.graduationdesign.utils.Constants;
 
 @ControllerAdvice
