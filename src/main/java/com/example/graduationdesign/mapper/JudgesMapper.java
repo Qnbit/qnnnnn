@@ -1,6 +1,6 @@
 package com.example.graduationdesign.mapper;
 
-import com.example.graduationdesign.pojo.Judges;
+import com.example.graduationdesign.domain.pojo.Judges;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

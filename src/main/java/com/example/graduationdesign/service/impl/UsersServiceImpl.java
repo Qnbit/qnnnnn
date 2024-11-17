@@ -1,7 +1,7 @@
 package com.example.graduationdesign.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.graduationdesign.pojo.Users;
+import com.example.graduationdesign.domain.pojo.Users;
 import com.example.graduationdesign.service.UsersService;
 import com.example.graduationdesign.mapper.UsersMapper;
 import org.springframework.stereotype.Service;

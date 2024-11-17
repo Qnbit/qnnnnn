@@ -12,4 +12,9 @@ public class TestController {
     public QN<String> test(){
         return QN.success("hello");
     }
+
+    @RequestMapping("/test2")
+    public String test2(){
+        return "hello2";
+    }
 }

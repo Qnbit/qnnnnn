@@ -13,7 +13,6 @@ public final class Constants {
     public static final String ACCOUNT_OR_PASSWORD_ERROR = "账号密码错误！";
     public static final String ACCOUNT_FROZEN = "账号已封禁！";
     public static final String ACCOUNT_UNAUDIT = "账号还未通过审核！";
-    public static final String GOOD_UNAUDIT = "商品还未通过审核！";
     public static final String UPLOAD_ERROR = "上传图片失败！";
     public static final String REGISTER_INFO_EMPTY = "填写信息为空！";
     public static final String ACCOUNT_EXIT = "该账号已存在！";

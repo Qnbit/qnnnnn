@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.graduationdesign.mapper.SubmissionsMapper">
 
-    <resultMap id="BaseResultMap" type="com.example.graduationdesign.pojo.Submissions">
+    <resultMap id="BaseResultMap" type="com.example.graduationdesign.domain.pojo.Submissions">
             <id property="submissionId" column="submission_id" jdbcType="INTEGER"/>
             <result property="userId" column="user_id" jdbcType="INTEGER"/>
             <result property="problemId" column="problem_id" jdbcType="INTEGER"/>

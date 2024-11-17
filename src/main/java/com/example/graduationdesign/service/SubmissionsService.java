@@ -1,6 +1,6 @@
 package com.example.graduationdesign.service;
 
-import com.example.graduationdesign.pojo.Submissions;
+import com.example.graduationdesign.domain.pojo.Submissions;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

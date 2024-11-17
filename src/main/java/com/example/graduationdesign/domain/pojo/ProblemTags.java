@@ -1,4 +1,4 @@
-package com.example.graduationdesign.pojo;
+package com.example.graduationdesign.domain.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -8,22 +8,27 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 标签表
- * @TableName tags
+ * 题目标签关联表
+ * @TableName problem_tags
  */
-@TableName(value ="tags")
+@TableName(value ="problem_tags")
 @Data
-public class Tags implements Serializable {
+public class ProblemTags implements Serializable {
     /**
-     * 标签ID，主键，自增
+     * 
      */
     @TableId(type = IdType.AUTO)
-    private Integer tagId;
+    private Long id;
 
     /**
-     * 标签名，唯一
+     * 题目ID，关联题目表
      */
-    private String tagName;
+    private Integer problemId;
+
+    /**
+     * 标签ID，关联标签表
+     */
+    private Integer tagId;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -39,17 +44,19 @@ public class Tags implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Tags other = (Tags) that;
-        return (this.getTagId() == null ? other.getTagId() == null : this.getTagId().equals(other.getTagId()))
-            && (this.getTagName() == null ? other.getTagName() == null : this.getTagName().equals(other.getTagName()));
+        ProblemTags other = (ProblemTags) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getProblemId() == null ? other.getProblemId() == null : this.getProblemId().equals(other.getProblemId()))
+            && (this.getTagId() == null ? other.getTagId() == null : this.getTagId().equals(other.getTagId()));
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getProblemId() == null) ? 0 : getProblemId().hashCode());
         result = prime * result + ((getTagId() == null) ? 0 : getTagId().hashCode());
-        result = prime * result + ((getTagName() == null) ? 0 : getTagName().hashCode());
         return result;
     }
 
@@ -59,8 +66,9 @@ public class Tags implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", problemId=").append(problemId);
         sb.append(", tagId=").append(tagId);
-        sb.append(", tagName=").append(tagName);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

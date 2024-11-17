@@ -1,4 +1,4 @@
-package com.example.graduationdesign.pojo;
+package com.example.graduationdesign.domain.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -8,23 +8,22 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 题目标签关联表
- * @TableName problem_tags
+ * 标签表
+ * @TableName tags
  */
-@TableName(value ="problem_tags")
+@TableName(value ="tags")
 @Data
-public class ProblemTags implements Serializable {
+public class Tags implements Serializable {
     /**
-     * 题目ID，外键，关联题目表
+     * 标签ID，主键，自增
      */
-//    @TableId
-    private Integer problemId;
+    @TableId(type = IdType.AUTO)
+    private Integer tagId;
 
     /**
-     * 标签ID，外键，关联标签表
+     * 标签名，唯一
      */
-//    @TableId
-    private Integer tagId;
+    private String tagName;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -40,17 +39,17 @@ public class ProblemTags implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        ProblemTags other = (ProblemTags) that;
-        return (this.getProblemId() == null ? other.getProblemId() == null : this.getProblemId().equals(other.getProblemId()))
-            && (this.getTagId() == null ? other.getTagId() == null : this.getTagId().equals(other.getTagId()));
+        Tags other = (Tags) that;
+        return (this.getTagId() == null ? other.getTagId() == null : this.getTagId().equals(other.getTagId()))
+            && (this.getTagName() == null ? other.getTagName() == null : this.getTagName().equals(other.getTagName()));
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getProblemId() == null) ? 0 : getProblemId().hashCode());
         result = prime * result + ((getTagId() == null) ? 0 : getTagId().hashCode());
+        result = prime * result + ((getTagName() == null) ? 0 : getTagName().hashCode());
         return result;
     }
 
@@ -60,8 +59,8 @@ public class ProblemTags implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", problemId=").append(problemId);
         sb.append(", tagId=").append(tagId);
+        sb.append(", tagName=").append(tagName);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
