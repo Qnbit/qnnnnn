@@ -1,5 +1,8 @@
 package com.example.graduationdesign.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.graduationdesign.common.QN;
 import com.example.graduationdesign.domain.pojo.Problems;
 import com.example.graduationdesign.service.ProblemsService;
@@ -25,8 +28,14 @@ public class ProblemController {
     ProblemsService problemsService;
 
     @GetMapping("/selectProblems")
-    public QN<List<Problems>> selectProblems() {
-        return QN.success(problemsService.list());
+    public QN<List<Problems>> selectProblems(Problems problems) {
+        LambdaQueryWrapper <Problems> problemsLambdaQueryWrapper = new LambdaQueryWrapper<>();
+//        problemsLambdaQueryWrapper.select(problems.getProblemId()!=null,Problems::getProblemId);
+//        problemsLambdaQueryWrapper.select(problems.getTitle()!=null,Problems::getTitle);
+        problemsLambdaQueryWrapper.like(problems.getTitle()!=null,Problems::getTitle,problems.getTitle());
+        problemsLambdaQueryWrapper.orderByAsc(Problems::getProblemId);
+        IPage<Problems> problemsPage = new Page<Problems>(1, 1);
+        return QN.success(problemsService.list(problemsPage,problemsLambdaQueryWrapper));
     }
 
 
