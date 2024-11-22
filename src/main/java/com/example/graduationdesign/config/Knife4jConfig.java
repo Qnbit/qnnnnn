@@ -1,5 +1,4 @@
 package com.example.graduationdesign.config;
-//注意，下面的配置中的一些信息无关紧要，主要是对knife4j主页中的介绍中的一些配置
 
 
 import io.swagger.v3.oas.models.OpenAPI;

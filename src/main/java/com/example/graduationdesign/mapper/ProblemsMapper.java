@@ -2,6 +2,7 @@ package com.example.graduationdesign.mapper;
 
 import com.example.graduationdesign.domain.pojo.Problems;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
 * @author 王鑫焱

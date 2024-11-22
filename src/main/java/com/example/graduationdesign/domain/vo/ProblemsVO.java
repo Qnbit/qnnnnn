@@ -8,7 +8,6 @@ public class ProblemsVO {
     /**
      * 题目ID，主键，自增
      */
-    @TableId(type = IdType.AUTO)
     private Integer problemId;
 
     /**
